@@ -70,3 +70,11 @@ let hogwarts = [
     occupation: "Teacher",
   },
 ];
+
+const { firstName, lastName } = hogwarts;
+
+function gryffindor({ firstName, lastName }) {
+  console.log(`${firstName} ${lastName}`);
+}
+
+hogwarts.forEach(gryffindor);

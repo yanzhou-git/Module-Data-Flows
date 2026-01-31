@@ -6,3 +6,29 @@ let order = [
   { itemName: "Hot Coffee", quantity: 2, unitPricePence: 100 },
   { itemName: "Hash Brown", quantity: 4, unitPricePence: 40 },
 ];
+
+function print() {
+  let totalAll = 0;
+  console.log("QTY  ITEM              TOTAL");
+  order.forEach(({ itemName, quantity, unitPricePence }) => {
+    const totalUnit = (quantity * unitPricePence) / 100;
+    totalAll += totalUnit;
+    console.log(
+      `${quantity}  ${itemName.padEnd(20, " ")}${totalUnit.toFixed(2)}`
+    );
+  });
+  console.log(`\nTotal:  ${totalAll.toFixed(2)}`);
+}
+
+print(order);
+
+/* QTY     ITEM                TOTAL
+1       Hot Cakes           2.32
+2       Apple Pie           2.78
+1       Egg McMuffin        2.80
+1       Sausage McMuffin    3.00
+2       Hot Coffee          2.00
+4       Hash Brown          1.60
+
+Total: 14.50
+*/
