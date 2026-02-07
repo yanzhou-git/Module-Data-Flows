@@ -6,3 +6,19 @@ let order = [
   { itemName: "Hot Coffee", quantity: 2, unitPricePence: 100 },
   { itemName: "Hash Brown", quantity: 4, unitPricePence: 40 },
 ];
+
+console.log("QTY     ITEM                TOTAL");
+function receipt(items) {
+  let sum = 0;
+  for ({ itemName, quantity, unitPricePence } of items) {
+    let total;
+    total = (quantity * unitPricePence) / 100;
+    sum += total;
+    console.log(
+      `${String(quantity).padEnd(4)}     ${itemName.padEnd(16)}     ${String(total).padEnd(8)}`
+    );
+  }
+  console.log(`Total: ${sum.toFixed(2)}`);
+}
+
+receipt(order);
