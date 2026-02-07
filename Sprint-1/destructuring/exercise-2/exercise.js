@@ -71,10 +71,10 @@ let hogwarts = [
   },
 ];
 
-const { firstName, lastName } = hogwarts;
-
-function gryffindor({ firstName, lastName }) {
-  console.log(`${firstName} ${lastName}`);
+function gryffindor({ firstName, lastName, house }) {
+  if (house === "Gryffindor") {
+    console.log(`${firstName} ${lastName}`);
+  }
 }
 
 hogwarts.forEach(gryffindor);
