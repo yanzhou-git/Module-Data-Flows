@@ -70,3 +70,11 @@ let hogwarts = [
     occupation: "Teacher",
   },
 ];
+
+function gryffindor({ firstName, lastName, house }) {
+  if (house === "Gryffindor") {
+    console.log(`${firstName} ${lastName}`);
+  }
+}
+
+hogwarts.forEach(gryffindor);
