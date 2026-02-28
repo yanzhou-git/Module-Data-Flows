@@ -7,18 +7,34 @@ let order = [
   { itemName: "Hash Brown", quantity: 4, unitPricePence: 40 },
 ];
 
-console.log("QTY     ITEM                TOTAL");
+console.log("QTY  ITEM                TOTAL");
+
 function receipt(items) {
-  let sum = 0;
-  for ({ itemName, quantity, unitPricePence } of items) {
-    let total;
-    total = (quantity * unitPricePence) / 100;
-    sum += total;
+  let totalAll = 0;
+
+  items.forEach(({ itemName, quantity, unitPricePence }) => {
+    const totalUnit = (quantity * unitPricePence) / 100;
+    totalAll += totalUnit;
+
     console.log(
-      `${String(quantity).padEnd(4)}     ${itemName.padEnd(16)}     ${String(total).padEnd(8)}`
+      `${String(quantity).padEnd(4)}  ${itemName.padEnd(20)}${totalUnit.toFixed(2)}`
     );
-  }
-  console.log(`Total: ${sum.toFixed(2)}`);
+  });
+
+  console.log(`\nTotal: ${totalAll.toFixed(2)}`);
 }
 
 receipt(order);
+
+print(order);
+
+/* QTY     ITEM                TOTAL
+1       Hot Cakes           2.32
+2       Apple Pie           2.78
+1       Egg McMuffin        2.80
+1       Sausage McMuffin    3.00
+2       Hot Coffee          2.00
+4       Hash Brown          1.60
+
+Total: 14.50
+*/
