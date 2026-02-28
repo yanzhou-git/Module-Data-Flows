@@ -7,18 +7,24 @@ let order = [
   { itemName: "Hash Brown", quantity: 4, unitPricePence: 40 },
 ];
 
-function print() {
+console.log("QTY  ITEM                TOTAL");
+
+function receipt(items) {
   let totalAll = 0;
-  console.log("QTY  ITEM              TOTAL");
-  order.forEach(({ itemName, quantity, unitPricePence }) => {
+
+  items.forEach(({ itemName, quantity, unitPricePence }) => {
     const totalUnit = (quantity * unitPricePence) / 100;
     totalAll += totalUnit;
+
     console.log(
-      `${quantity}  ${itemName.padEnd(20, " ")}${totalUnit.toFixed(2)}`
+      `${String(quantity).padEnd(4)}  ${itemName.padEnd(20)}${totalUnit.toFixed(2)}`
     );
   });
-  console.log(`\nTotal:  ${totalAll.toFixed(2)}`);
+
+  console.log(`\nTotal: ${totalAll.toFixed(2)}`);
 }
+
+receipt(order);
 
 print(order);
 
